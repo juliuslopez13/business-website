@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Panggako's Catering</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        @media (max-width: 768px) {
+            .gallery-container {
+            grid-template-columns: repeat(2, 1fr);
+            }
+            .modal-gallery {
+            grid-template-columns: repeat(2, 1fr);
+            }
+            .filter-buttons {
+            flex-wrap: wrap;
+            }
+            .filter-btn {
+            font-size: 12px;
+            padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-container {
+            grid-template-columns: 1fr;
+            }
+            .modal-gallery {
+            grid-template-columns: 1fr;
+            }
+        }
+            .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding-bottom: 150px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            color: #ccc;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #8b7355;
+            background-color: transparent;
+            color: #8b7355;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #8b7355;
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background-color: #8b7355;
+            color: white;
+        }
+
+        .fixed-buttons {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER WITH CONTACT INFO -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-left">
+                <span>📍 Purok 4, Bulaklakan, Lipa City</span>
+                <span>📞 (+63) 955 975 3142</span>
+            </div>
+            <div class="header-right"></div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <img src="assets/logo2.jpg" alt="Panggako's Catering Logo">
+                <span class="logo-text">Panggako's Catering</span>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">
+            ☰
+            </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="goToHome(); return false;" class="nav-link">HOME</a></li>
+
+                <li><a href="#" onclick="navigateWithFade('reviews.html'); return false;" class="nav-link">REVIEWS</a></li> 
+                <li><a href="#" onclick="navigateWithFade('gallery.html'); return false;" class="nav-link">GALLERY</a></li>               
+                
+                <li class="book-now"><a href="#" onclick="navigateWithFade('index.html#booking-page'); return false;" class="nav-link">BOOK NOW</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- GALLERY PAGE -->
+    <section class="gallery-page">
+        <div class="container">
+            <h2>GALLERY - EVENT DESIGN THEMES</h2>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterCategory('classic')">Classic</button>
+                <button class="filter-btn" onclick="filterCategory('movie-princess')">Movie/Princess Inspired</button>
+                <button class="filter-btn" onclick="filterCategory('minimalist')">Minimalist</button>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item" data-category="classic" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\classic1.jpg" alt="Design 1">
+                </div>
+                <div class="gallery-item" data-category="classic" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\classic2.jpg" alt="Design 2">
+                </div>
+                <div class="gallery-item" data-category="classic" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\classic3.jpg" alt="Design 3">
+                </div>
+                <div class="gallery-item" data-category="classic" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\classic4.jpg" alt="Design 4">
+                </div>
+                
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess1.jpg" alt="Design 7">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess2.jpg" alt="Design 8">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess3.jpg" alt="Design 9">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess4.jpg" alt="Design 10">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess5.jpg" alt="Design 11">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess6.jpg" alt="Design 12">
+                </div>
+                <div class="gallery-item" data-category="movie-princess" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\movieprincess7.jpg" alt="Design 12">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist1.jpg" alt="Design 13">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist2.jpg" alt="Design 14">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist3.jpg" alt="Design 15">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist4.jpg" alt="Design 16">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist5.jpg" alt="Design 17">
+                </div>
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist6.jpg" alt="Design 18">
+                </div>
+
+                <div class="gallery-item" data-category="minimalist" onclick="openPhotoModal(this.querySelector('img').src)">
+                    <img src="sample designs\minimalist7.jpg" alt="Design 18">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Buttons -->
+        <div class="fixed-buttons" style="position: fixed; bottom: 10px; left: 10px; display: flex; flex-direction: column; gap: 10px; z-index: 100;">
+            <button class="submit-btn" onclick="navigateWithFade('index.html#booking-page')">BOOK NOW</button>
+            <button class="cancel-btn" onclick="navigateWithFade('index.html')">BACK TO HOME</button>
+        </div>
+
+        <!-- Photo Modal for Full View -->
+        <div id="photoModal" class="modal-overlay">
+            <span class="close-modal" onclick="closePhotoModal()">&times;</span>
+            <img id="modalPhoto" src="" alt="Full View" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        function openModal() {
+            document.getElementById('galleryModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('galleryModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function filterCategory(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            items.forEach(item => {
+                if (item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        document.getElementById('galleryModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panggako's Catering</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- TOP HEADER WITH CONTACT INFO -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-left">
+                <span>📍 Purok 4, Bulaklakan, Lipa City</span>
+                <span>📞 (+63) 955 975 3142</span>
+            </div>
+            <div class="header-right"></div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <img src="assets/logo2.jpg" alt="Panggako's Catering Logo">
+                <span class="logo-text">Panggako's Catering</span>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">
+            ☰
+            </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="goToHome(); return false;" class="nav-link">HOME</a></li>
+
+                <li><a href="#" onclick="navigateWithFade('reviews.html'); return false;" class="nav-link">REVIEWS</a></li> 
+                <li><a href="#" onclick="navigateWithFade('gallery.html'); return false;" class="nav-link">GALLERY</a></li>               
+                
+                <li class="book-now"><a href="#" onclick="navigateWithFade('index.html#booking-page'); return false;" class="nav-link">BOOK NOW</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <section id="home-page" class="home-page active-page">
+        <!-- HERO SECTION -->
+        <div class="hero-section">
+            <div class="hero-background">
+                <img src="assets\Panggako’s Catering_page-0001.jpg" alt="Premium Catering">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <button class="hero-button" onclick="scrollToSection('booking-page')">RESERVE YOUR EVENT</button>
+            </div>
+        </div>
+
+        <!-- FEATURE CARDS SECTION -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <!-- Card 1 -->
+                    <div class="feature-card">
+                        <div class="card-image">
+                            <img src="assets\imployee.jpg" alt="About Us">
+                        </div>
+                        <div class="card-content">
+                            <h3>WELCOME TO OUR WORLD</h3>
+                            <p>Experience premium catering services with exceptional attention to detail. Our team brings culinary excellence and professional service to every occasion.</p>
+                            <button class="card-button" onclick="scrollToAbout()">LEARN MORE ABOUT US</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="feature-card">
+                        <div class="card-image">
+                            <img src="assets\design.jpg" alt="Menu Designs">
+                        </div>
+                        <div class="card-content">
+                            <h3>EXQUISITE MENU OPTIONS</h3>
+                            <p>Choose from our curated selection of menu packages and event themes. Customize every detail to match your vision and create unforgettable memories.</p>
+                            <button class="card-button" onclick="navigateWithFade('gallery.html')">EXPLORE DESIGNS</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="feature-card">
+                        <div class="card-image">
+                            <img src="assets\OIP.webp" alt="Book Now">
+                        </div>
+                        <div class="card-content">
+                            <h3>EASY BOOKING & PAYMENT</h3>
+                            <p>Reserve your event with our simple booking process. Select your preferred services and make secure payment with multiple payment options available.</p>
+                            <button class="card-button" onclick="scrollToSection('booking-page')">BOOK YOUR EVENT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>ABOUT OUR CATERING</h2>
+                <p class="about-intro">Panggako's Catering specializes in creating unforgettable dining experiences for weddings, corporate events, and celebrations. With over 4 years of expertise, we combine culinary excellence with impeccable service.</p>
+                
+                <div class="mission-vision-grid">
+                    <div class="mission-box">
+                        <h3>OUR MISSION</h3>
+                        <p>To deliver exceptional catering services that exceed expectations and create lasting memories for our clients through quality, creativity, and professional service.</p>
+                    </div>
+                    <div class="vision-box">
+                        <h3>OUR VISION</h3>
+                        <p>To be the most trusted and preferred catering company, known for innovative menus, stunning event designs, and outstanding customer care that transforms celebrations into cherished moments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION SECTION -->
+        <section class="location-section">
+            <div class="container">
+                <h2>FIND US</h2>
+                <div class="location-content">
+                    <div class="location-info">
+                        <h3>Our Location & Contact</h3>
+                        <p><strong>📍 Address:</strong> Purok 4, Bulaklakan, Lipa City</p>
+                        <p><strong>📞 Phone:</strong>  (+63) 955 975 3142</p>
+                        <p><strong>📧 Email:</strong> info@panggakoscatering.com</p>
+                        <p><strong><a href="https://www.facebook.com/profile.php?id=61586537765671" target="_blank" class="facebook-link"><i class="fa fa-facebook"></i> Follow us on Facebook</a></strong></p>
+                        <p><strong><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftiktok.com%2F%40cesscelib25%253F_r%253D1%2526_t%253DZN-936AmV3tRnq%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExT1NObDQ5dktMTU5LcHllMXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4rs8V1vnQGPY7Ljqu7nA-MyDS30zLDb_daVxcosPlgRMZLnb-Oe_86aTKGIg_aem_yk8C-oUKvfIpI0UKbP5c8g&h=AUB3Tgv2uJU2wG0T4zJK6vrvuXdVObt1xqPa7DQ2oCJpz5QKdeDCRVZXfCvZUCygtqe95laxCzqvQyfFduE64okGYcZHSjjK8ccPg3tEh3jSb1A-6MvS9sJbgAd2eEwO6vfo" target="_blank" class="tiktok-link"><i class="fa fa-music"></i> Follow us on TikTok</a></strong></p>
+                        
+                    </div>
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.4432695474487!2d121.0907158!3d13.9497135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6d68842a9ced:0x8049d2c021c3ef1e!2spangga+ko's+catering+services!5e0!3m2!1sen!2sph!4v1714998000000" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING FORM SECTION -->
+        <section id="booking-page" class="booking-page active-page" >
+            <div class="container">
+                <h2>RESERVE YOUR EVENT</h2>
+                <form class="booking-form" onsubmit="submitBooking(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="eventType">Event Type *</label>
+                            <select id="eventType" required>
+                                <option value="">Select Event Type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDesign">Event Design Theme *</label>
+                            <select id="eventDesign" required>
+                                <option value="">Select Design Theme</option>
+                                <option value="classic">Classic</option>
+                                <option value="movie-princess">Movie/Princess Inspired</option>
+                                <option value="minimalist">Minimalist</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="staffService">Staff Service *</label>
+                            <select id="staffService" required>
+                                <option value="">Select Service Option</option>
+                                <option value="with-waiters">With Professional Waiters (₱500/person)</option>
+                                <option value="self-service">Self-Service (₱0)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="foodPackage">Food Package *</label>
+                            <select id="foodPackage" required>
+                                <option value="">Select Food Package</option>
+                                <option value="25">Four (4) Dishes - ₱3,000</option>
+                                <option value="50">Six (6) Dishes - ₱5,000</option>
+                                <option value="75">Eight (8) Dishes - ₱7,500</option>
+                                <option value="100">Ten (10) Dishes - ₱10,000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guestCount">Number of Guests *</label>
+                            <input type="number" id="guestCount" min="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDate">Event Date *</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventTime">Event Time *</label>
+                            <input type="time" id="eventTime" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDuration">Duration (hours) *</label>
+                            <input type="number" id="eventDuration" min="1" max="12" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="specialRequests">Special Requests</label>
+                        <textarea id="specialRequests" rows="4" placeholder="Any special dietary requirements, preferences, or other requests..."></textarea>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-item">
+                            <span>Food Cost:</span>
+                            <span>₱<span id="foodCost">0</span></span>
+                        </div>
+                        <div class="price-item">
+                            <span>Staff Service:</span>
+                            <span>₱<span id="staffCost">0</span></span>
+                        </div>
+                        <div class="price-item total">
+                            <span>TOTAL:</span>
+                            <span>₱<span id="totalPrice">0</span></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">PROCEED TO PAYMENT</button>
+                </form>
+            </div>
+        </section>
+    </section>
+
+    <!-- PAYMENT PAGE -->
+    <section id="payment-page" class="payment-page">
+        <div class="container">
+            <h2>COMPLETE YOUR PAYMENT</h2>
+
+            <div class="payment-container">
+                <!-- Login/Register Section -->
+                <div class="login-register-section" id="loginRegisterSection">
+                    <h3>CUSTOMER INFORMATION</h3>
+                    <p class="section-subtitle">Please log in or create an account to proceed with payment</p>
+                    
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                        <button class="auth-tab" onclick="switchAuthTab('register')">Register</button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div id="login-form" class="auth-form active-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email *</label>
+                            <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password *</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="button" class="auth-btn" onclick="handleLogin()">LOGIN</button>
+                        <p class="auth-link"><a href="#">Forgot your password?</a></p>
+                    </div>
+                    
+                    <!-- Register Form -->
+                    <div id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="registerName">Full Name *</label>
+                            <input type="text" id="registerName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email *</label>
+                            <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPhone">Phone Number *</label>
+                            <input type="tel" id="registerPhone" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password *</label>
+                            <input type="password" id="registerPassword" placeholder="Create a password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirm">Confirm Password *</label>
+                            <input type="password" id="registerConfirm" placeholder="Confirm your password" required>
+                        </div>
+                        <button type="button" class="auth-btn" onclick="handleRegister()">CREATE ACCOUNT</button>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>ORDER SUMMARY</h3>
+                    <div id="orderDetails"></div>
+                    <div class="summary-total">
+                        <strong>Total Amount: ₱<span id="paymentTotal">0</span></strong>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods">
+                    <h3>SELECT PAYMENT METHOD</h3>
+                    
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="credit-card" checked onchange="showPaymentForm('credit-card')">
+                            <span>💳 Credit Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="paypal" onchange="showPaymentForm('paypal')">
+                            <span>🅿️ PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="bank-transfer" onchange="showPaymentForm('bank-transfer')">
+                            <span>🏦 Bank Transfer</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="cash" onchange="showPaymentForm('cash')">
+                            <span>💵 Cash</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="check" onchange="showPaymentForm('check')">
+                            <span>📄 Check</span>
+                        </label>
+                    </div>
+
+                    <!-- Credit Card Form -->
+                    <div id="credit-card-form" class="payment-form active-form">
+                        <div class="form-group">
+                            <label for="cardName">Cardholder Name *</label>
+                            <input type="text" id="cardName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date *</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVV">CVV *</label>
+                                <input type="text" id="cardCVV" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PayPal Form -->
+                    <div id="paypal-form" class="payment-form">
+                        <p>You will be redirected to PayPal to complete your payment securely.</p>
+                        <p style="font-size: 0.9em;">No sensitive information needs to be entered here.</p>
+                    </div>
+
+                    <!-- Bank Transfer Form -->
+                    <div id="bank-transfer-form" class="payment-form">
+                        <p><strong>Bank Transfer Details:</strong></p>
+                        <p>Account Name: May's Catering Inc.</p>
+                        <p>Account Number: 1234567890</p>
+                        <p>Routing Number: 987654321</p>
+                        <p>Please use your reservation ID as the payment reference.</p>
+                    </div>
+
+                    <!-- Cash Form -->
+                    <div id="cash-form" class="payment-form">
+                        <p><strong>Cash Payment Options:</strong></p>
+                        <p>✓ Pay in full at our office</p>
+                        <p>✓ 50% deposit now, 50% on event day</p>
+                        <p>Our team will contact you to arrange pickup or payment details.</p>
+                    </div>
+
+                    <!-- Check Form -->
+                    <div id="check-form" class="payment-form">
+                        <p><strong>Check Payment Details:</strong></p>
+                        <p>Make checks payable to: <strong>May's Catering Inc.</strong></p>
+                        <p>Mail to: 123 Main Street, Downtown, Your City, ST 12345</p>
+                        <p>Please include your reservation ID in the check memo line.</p>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-checkbox">
+                        <label>
+                            <input type="checkbox" id="termsAccepted" required>
+                            I agree to the terms and conditions and cancellation policy
+                        </label>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="payment-buttons">
+                        <button type="button" class="submit-btn" onclick="completePayment()">COMPLETE PAYMENT</button>
+                        <button type="button" class="cancel-btn" onclick="goToPage('home')">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

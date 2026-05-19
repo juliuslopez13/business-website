@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Panggako's Catering</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .reviews-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding-bottom: 150px;
+        }
+        .review-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .review-card.cover-photo {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        .review-card.cover-photo img {
+            width: 60%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+        .fixed-buttons {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+        @media (max-width: 768px) {
+            .reviews-gallery { grid-template-columns: repeat(2, 1fr); }
+            .review-card.cover-photo img { height: 220px; }
+            .review-card.cover-photo img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+        }
+        }
+        @media (max-width: 480px) {
+            .reviews-gallery { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-header">
+        <div class="container">
+            <div class="header-left">
+                <span>📍 Purok 4, Bulaklakan, Lipa City</span>
+                <span>📞 (+63) 955 975 3142</span>
+            </div>
+            <div class="header-right"></div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <img src="assets/logo2.jpg" alt="Panggako's Catering Logo">
+                <span class="logo-text">Panggako's Catering</span>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">
+            ☰
+            </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="goToHome(); return false;" class="nav-link">HOME</a></li>  
+
+                <li><a href="#" onclick="navigateWithFade('reviews.html'); return false;" class="nav-link">REVIEWS</a></li> 
+                <li><a href="#" onclick="navigateWithFade('gallery.html'); return false;" class="nav-link">GALLERY</a></li>               
+                
+                <li class="book-now"><a href="#" onclick="scrollToSection('booking-page')" class="nav-link">BOOK NOW</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="reviews-page">
+        <div class="container">
+            <h2>Customer Reviews</h2>
+
+            <div class="reviews-gallery">
+
+                <div class="review-card cover-photo">
+                    <img src="reviews/702208451_2027599084493423_8589764390121077340_n.jpg" alt="Featured Customer Review">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/673602279_995601539624854_892101889201467546_n.jpg" alt="Customer Review 1">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/692842789_864485866683907_5742309462519053503_n.jpg" alt="Customer Review 2">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/693088523_2508295936291890_5705767560282418037_n.jpg" alt="Customer Review 3">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/693662872_1008632535069736_8632727981685410938_n.jpg" alt="Customer Review 4">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/694327972_1718921012455853_8591918352473867939_n.jpg" alt="Customer Review 5">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/694407482_1429879049182659_1892147207696884258_n.jpg" alt="Customer Review 6">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/694712397_1472789457387029_5845913296747946247_n.jpg" alt="Customer Review 7">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/694930999_1302549497969200_2197204036825706593_n.jpg" alt="Customer Review 8">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/696215100_1287543930237397_647044841185102088_n.jpg" alt="Customer Review 9">
+                </div>
+
+                <div class="review-card">
+                    <img src="reviews/702555602_1517065540048629_5224832632584785625_n.jpg" alt="Customer Review 11">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="fixed-buttons">
+            <button class="submit-btn" onclick="navigateWithFade('index.html#booking-page')">BOOK NOW</button>
+            <button class="cancel-btn" onclick="navigateWithFade('index.html')">BACK TO HOME</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
