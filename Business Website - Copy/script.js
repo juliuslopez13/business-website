@@ -234,15 +234,15 @@ function generateOrderSummary(data) {
     };
     
     const staffMap = {
-        'with-waiters': 'With Professional Waiters ($15/person)',
+        'with-waiters': 'With Professional Waiters (₱500/person)',
         'self-service': 'Self-Service'
     };
     
     const foodMap = {
-        '25': 'Basic Package ($25/person)',
-        '50': 'Standard Package ($50/person)',
-        '75': 'Premium Package ($75/person)',
-        '100': 'Luxury Package ($100/person)'
+        '25': 'Basic Package (₱25/person)',
+        '50': 'Standard Package (₱50/person)',
+        '75': 'Premium Package (₱75/person)',
+        '100': 'Luxury Package (₱100/person)'
     };
     
     orderDetails.innerHTML = `
@@ -309,11 +309,11 @@ Payment Successful!
 Reservation ID: ${reservationId}
 Payment Method: ${paymentMethod}
 
-Thank you for booking with May's Catering!
+Thank you for booking with Panggako's Catering!
 We will contact you to confirm your event details.
 
 Event Date: ${bookingData.eventDate}
-Total Amount Paid: $${bookingData.totalCost}
+Total Amount Paid: ₱${bookingData.totalCost}
     `);
     
     // Reset form
