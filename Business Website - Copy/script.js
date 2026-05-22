@@ -85,11 +85,40 @@ function initializePaymentPage() {
     }
 }
 
+// ===== DARK MODE TOGGLE =====
+function initializeDarkMode() {
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const darkModePreference = localStorage.getItem('darkMode');
+    
+    // Apply saved preference
+    if (darkModePreference === 'enabled') {
+        document.documentElement.classList.add('dark-mode');
+    }
+    
+    // Add click listener to toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+}
+
+function toggleDarkMode() {
+    const root = document.documentElement;
+    
+    if (root.classList.contains('dark-mode')) {
+        root.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+    } else {
+        root.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+    }
+}
+
 // Load dark mode preference on page load
 window.addEventListener('load', () => {
     setupEventListeners();
     setupDropdowns();
     initializePaymentPage();
+    initializeDarkMode();
 });
 
 // ===== DROPDOWN MENUS =====
